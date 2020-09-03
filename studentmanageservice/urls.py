@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path 
 from original import views
-from . views import create,detail,update,delete
+from .views import create,detail,update,delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),

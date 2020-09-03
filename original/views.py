@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from . models import student_models
-from students.models import StudentModel
-from signup.views import home
+from original.models import StudentModel
 # Create your views here.
 
 def home(request):
