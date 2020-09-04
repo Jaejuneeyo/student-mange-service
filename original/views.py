@@ -3,7 +3,8 @@ from original.models import StudentModel
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html')
+    all_student = StudentModel.objects.all()
+    return render(request,'home.html',{'all_student':all_student})
 
 def create(request):
     if request.method =="POST" :
@@ -31,6 +32,10 @@ def update(request, student_id):
         item.class_number = request.POST['class_number']
         item.grade = request.POST['grade']
         item.save()
+
+        return redirect('detail', student_id)
+    else:
+        return render(request, 'update.html',{'items' : item})
 
 def detail(request, student_id):
     item = get_object_or_404(StudentModel, pk=student_id)
