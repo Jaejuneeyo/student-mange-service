@@ -1,25 +1,9 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect, get_object_or_404
-from . models import student_models
+from django.shortcuts import render,redirect,get_object_or_404
 from original.models import StudentModel
 # Create your views here.
 
 def home(request):
     return render(request,'home.html')
-
-def login(request):
-    return render(request,'login.html')
-
-def signup(request):
-    regi_form = UserCreationForm()     
-    if request.method =="POST":
-        filled_form = UserCreationForm(request.POST)
-        if filled_form.is_valid():
-            filled_form.save()
-            return redirect('home')
-
-    return render(request,'signup.html',{'regi_form' : regi_form})
 
 def create(request):
     if request.method =="POST" :
